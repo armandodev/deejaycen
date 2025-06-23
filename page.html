@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      DJ Cen - Servicios Premium de Audio, Iluminación y DJ para Eventos
+    </title>
+    <meta
+      name="description"
+      content="DJ Cen - Jorge Armando Ceras Cárdenas. Servicios profesionales de DJ, audio e iluminación para eventos. Desde $300 MXN. Experiencia y calidad garantizada."
+    />
+    <meta
+      name="keywords"
+      content="DJ, audio, iluminación, eventos, bodas, fiestas, música, sonido profesional"
+    />
+    <meta
+      property="og:title"
+      content="DJ Cen - Servicios Premium de DJ para Eventos"
+    />
+    <meta
+      property="og:description"
+      content="Transforma tu evento con servicios profesionales de DJ, audio e iluminación. Experiencia garantizada."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://djcen.mx" />
+    <link rel="canonical" href="https://djcen.mx" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js para interactividad -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- AOS para animaciones on scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* Variables CSS personalizadas */
+      :root {
+        --primary: #9333ea;
+        --primary-dark: #7c3aed;
+        --secondary: #ec4899;
+        --dark: #0f172a;
+        --light: #f8fafc;
+        --gradient: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+      }
+
+      /* Scrollbar personalizada */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #1e293b;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 4px;
+      }
+
+      /* Animaciones personalizadas */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(147, 51, 234, 0.8);
+        }
+      }
+
+      .float-animation {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .pulse-glow {
+        animation: pulse-glow 2s ease-in-out infinite;
+      }
+
+      /* Efectos de hover mejorados */
+      .hover-scale {
+        transition: all 0.3s ease;
+      }
+
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+
+      /* Gradient text */
+      .gradient-text {
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Hero video overlay */
+      .hero-overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.9) 0%,
+          rgba(147, 51, 234, 0.7) 100%
+        );
+      }
+
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Loading animation */
+      .loader {
+        border: 3px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        border-top-color: var(--primary);
+        width: 40px;
+        height: 40px;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-900 text-white"
+    x-data="{ mobileMenu: false, loading: true }"
+    x-init="setTimeout(() => loading = false, 1000)"
+  >
+    <!-- Loader -->
+    <div
+      x-show="loading"
+      x-transition
+      class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900"
+    >
+      <div class="loader"></div>
+    </div>
+
+    <!-- Navegación Sticky -->
+    <nav
+      class="fixed top-0 w-full z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 transition-all duration-300"
+      x-data="{ scrolled: false }"
+      @scroll.window="scrolled = (window.pageYOffset > 20)"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <a href="#" class="flex items-center space-x-2">
+            <div class="w-10 h-10">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.0"
+                viewBox="0 0 1024 1024"
+                fill="currentColor"
+                class="text-purple-500"
+              >
+                <path
+                  d="M227.1 165.6c-2.1 2.7-2.1 2.7-2.1 343.8 0 361.7-.2 345.4 4.4 344.5 1-.2 13.5-12.1 27.9-26.5C450.2 635.3 497.9 591 560.5 545.9c40.4-29.2 79.4-50.6 131.4-72.1 8-3.3 17.5-7.3 21-8.7 8.8-3.7 9.6-5.4 4.9-9.4-2-1.8-14.6-9.8-28-17.8-13.3-8-49.5-29.8-80.3-48.4-30.8-18.6-81.2-49-112-67.5-30.8-18.6-67-40.4-80.5-48.5-13.5-8.2-30.3-18.3-37.5-22.5-7.1-4.2-24.7-14.8-39-23.5-66.6-40.7-106.9-64.5-109-64.5-1.4 0-3.3 1.1-4.4 2.6zm130.6 194c14.2 8.6 32.3 19.6 40.3 24.4 15.3 9.1 66.5 40.5 81 49.5 4.7 2.9 17.8 11 29.3 17.9 11.4 7 20.7 13.3 20.7 13.9 0 .7-1.7 2.3-3.7 3.7-10.6 7.1-41.4 29.5-52.7 38.4-37.6 29.5-78.3 65.5-125.9 111.4-8.7 8.4-16.3 15-16.8 14.7-.5-.4-.9-57.5-.9-145.1 0-124.4.2-144.4 1.4-144.4.8 0 13.1 7 27.3 15.6z"
+                />
+                <path
+                  d="M727.5 507.7c-46.6 6.1-89.3 23.6-141 57.9-48.7 32.2-91.4 70.1-179.5 159-19 19.2-54.5 55-78.8 79.5-24.3 24.5-44.2 45.3-44.2 46.1 0 3.5 2.5 4 21.7 4.1 21 0 25.6-.9 39.8-8 15.7-8 18.3-10.2 56.4-49.6C499.1 696 543.3 657.1 596.1 625.4c58.2-34.8 115.7-50.8 165.5-45.9 8.8.8 18.8 2.2 22.4 3 18.8 4.1 17.6 4 20.4 2.2 4.5-3 4.3-5.5-1.3-17.9-2.9-6.2-7-14.4-9.3-18.3-7.7-13-27.1-38.5-30.8-40.5-1.8-.9-28.9-1.2-35.5-.3z"
+                />
+                <path
+                  d="M722 616.1c-17.4 2-46.4 9.2-62.4 15.5-48.7 19.4-94.1 50.7-147.3 101.6-23.7 22.7-64.9 63.2-90.6 89.2-19.7 20-23.7 24.5-23.5 26.6.3 2.5.3 2.5 19.8 2.8 20.6.3 23.6-.1 34.5-4.6 10.9-4.4 24.7-15.8 61.2-50.3 46.2-43.6 62.4-57.3 89.8-75.6 19.6-13.1 39.1-23.6 53.5-28.8 11.7-4.1 29.7-8.2 42.2-9.5 9.6-1 13.7-.9 25.9.5 16.2 1.8 21.3 3 36.1 8.1 10.5 3.7 30.6 13.3 41.1 19.6 10 6.1 12.4 3.8 16.4-15.7 2.6-13 2.8-15.7 2.8-37.2 0-21.9-.1-23.4-2-25.2-2.7-2.6-21.6-9.6-34.4-12.7-19.8-4.8-44-6.4-63.1-4.3z"
+                />
+              </svg>
+            </div>
+            <span class="text-xl font-bold gradient-text">DJ Cen</span>
+          </a>
+
+          <!-- Menu Desktop -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#inicio" class="hover:text-purple-500 transition-colors"
+              >Inicio</a
+            >
+            <a href="#portfolio" class="hover:text-purple-500 transition-colors"
+              >Portafolio</a
+            >
+            <a href="#servicios" class="hover:text-purple-500 transition-colors"
+              >Servicios</a
+            >
+            <a href="#sobre-mi" class="hover:text-purple-500 transition-colors"
+              >Sobre Mí</a
+            >
+            <a href="#resenas" class="hover:text-purple-500 transition-colors"
+              >Reseñas</a
+            >
+            <a
+              href="#contacto"
+              class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full transition-all hover-scale"
+            >
+              Cotizar Ahora
+            </a>
+          </div>
+
+          <!-- Menu Mobile Toggle -->
+          <button @click="mobileMenu = !mobileMenu" class="md:hidden">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Mobile -->
+      <div
+        x-show="mobileMenu"
+        x-transition
+        class="md:hidden bg-slate-800/95 backdrop-blur-md"
+      >
+        <div class="px-4 py-4 space-y-3">
+          <a
+            href="#inicio"
+            @click="mobileMenu = false"
+            class="block py-2 hover:text-purple-500"
+            >Inicio</a
+          >
+          <a
+            href="#portfolio"
+            @click="mobileMenu = false"
+            class="block py-2 hover:text-purple-500"
+            >Portafolio</a
+          >
+          <a
+            href="#servicios"
+            @click="mobileMenu = false"
+            class="block py-2 hover:text-purple-500"
+            >Servicios</a
+          >
+          <a
+            href="#sobre-mi"
+            @click="mobileMenu = false"
+            class="block py-2 hover:text-purple-500"
+            >Sobre Mí</a
+          >
+          <a
+            href="#resenas"
+            @click="mobileMenu = false"
+            class="block py-2 hover:text-purple-500"
+            >Reseñas</a
+          >
+          <a
+            href="#contacto"
+            @click="mobileMenu = false"
+            class="block bg-purple-600 text-center py-3 rounded-full"
+          >
+            Cotizar Ahora
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="inicio"
+      class="relative h-screen flex items-center justify-center overflow-hidden"
+    >
+      <!-- Video Background -->
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 hero-overlay z-10"></div>
+        <img
+          src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1920&h=1080&fit=crop"
+          alt="DJ Performance"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <!-- Hero Content -->
+      <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6" data-aos="fade-up">
+          <span class="gradient-text">Transforma tu Evento</span><br />
+          en una Experiencia Inolvidable
+        </h1>
+        <p
+          class="text-xl md:text-2xl mb-8 text-gray-300"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Servicios profesionales de DJ, Audio e Iluminación
+        </p>
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <a
+            href="#contacto"
+            class="bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-full text-lg font-semibold transition-all hover-scale pulse-glow"
+          >
+            <i class="fas fa-calendar-check mr-2"></i> Reservar Fecha
+          </a>
+          <a
+            href="#portfolio"
+            class="border-2 border-purple-600 hover:bg-purple-600 px-8 py-4 rounded-full text-lg font-semibold transition-all"
+          >
+            <i class="fas fa-play-circle mr-2"></i> Ver Portfolio
+          </a>
+        </div>
+
+        <!-- Indicador de scroll -->
+        <div
+          class="absolute bottom-8 left-1/2 transform -translate-x-1/2 float-animation"
+        >
+          <i class="fas fa-chevron-down text-2xl text-purple-500"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-4">
+      <div class="container mx-auto">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Mi <span class="gradient-text">Portfolio</span>
+          </h2>
+          <p class="text-xl text-gray-400">
+            Momentos únicos capturados en cada evento
+          </p>
+        </div>
+
+        <!-- Filtros -->
+        <div
+          class="flex flex-wrap justify-center gap-4 mb-12"
+          data-aos="fade-up"
+          x-data="{ activeFilter: 'todos' }"
+        >
+          <button
+            @click="activeFilter = 'todos'"
+            :class="activeFilter === 'todos' ? 'bg-purple-600' : 'bg-slate-800'"
+            class="px-6 py-2 rounded-full transition-all"
+          >
+            Todos
+          </button>
+          <button
+            @click="activeFilter = 'bodas'"
+            :class="activeFilter === 'bodas' ? 'bg-purple-600' : 'bg-slate-800'"
+            class="px-6 py-2 rounded-full transition-all"
+          >
+            Bodas
+          </button>
+          <button
+            @click="activeFilter = 'corporativos'"
+            :class="activeFilter === 'corporativos' ? 'bg-purple-600' : 'bg-slate-800'"
+            class="px-6 py-2 rounded-full transition-all"
+          >
+            Corporativos
+          </button>
+          <button
+            @click="activeFilter = 'sociales'"
+            :class="activeFilter === 'sociales' ? 'bg-purple-600' : 'bg-slate-800'"
+            class="px-6 py-2 rounded-full transition-all"
+          >
+            Eventos Sociales
+          </button>
+        </div>
+
+        <!-- Galería -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Item 1 -->
+          <div
+            class="group relative overflow-hidden rounded-lg hover-scale"
+            data-aos="fade-up"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop"
+              alt="Evento"
+              class="w-full h-64 object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6"
+            >
+              <div>
+                <h3 class="text-xl font-bold mb-2">Boda Elegante</h3>
+                <p class="text-gray-300">Hacienda San Miguel</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div
+            class="group relative overflow-hidden rounded-lg hover-scale"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&h=400&fit=crop"
+              alt="Evento"
+              class="w-full h-64 object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6"
+            >
+              <div>
+                <h3 class="text-xl font-bold mb-2">Evento Corporativo</h3>
+                <p class="text-gray-300">Centro de Convenciones</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div
+            class="group relative overflow-hidden rounded-lg hover-scale"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&h=400&fit=crop"
+              alt="Evento"
+              class="w-full h-64 object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6"
+            >
+              <div>
+                <h3 class="text-xl font-bold mb-2">Festival Musical</h3>
+                <p class="text-gray-300">Parque Central</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div
+            class="group relative overflow-hidden rounded-lg hover-scale"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&h=400&fit=crop"
+              alt="Evento"
+              class="w-full h-64 object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6"
+            >
+              <div>
+                <h3 class="text-xl font-bold mb-2">Fiesta Privada</h3>
+                <p class="text-gray-300">Club Exclusivo</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div
+            class="group relative overflow-hidden rounded-lg hover-scale"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=600&h=400&fit=crop"
+              alt="Evento"
+              class="w-full h-64 object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6"
+            >
+              <div>
+                <h3 class="text-xl font-bold mb-2">Graduación</h3>
+                <p class="text-gray-300">Universidad Estatal</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div
+            class="group relative overflow-hidden rounded-lg hover-scale"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=600&h=400&fit=crop"
+              alt="Evento"
+              class="w-full h-64 object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6"
+            >
+              <div>
+                <h3 class="text-xl font-bold mb-2">Concierto en Vivo</h3>
+                <p class="text-gray-300">Arena Principal</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-20 px-4 bg-slate-800/50">
+      <div class="container mx-auto">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Nuestros <span class="gradient-text">Servicios</span>
+          </h2>
+          <p class="text-xl text-gray-400">
+            Soluciones completas para tu evento
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Servicio DJ Básico -->
+          <div
+            class="bg-slate-900 rounded-2xl p-8 border border-slate-700 hover:border-purple-600 transition-all"
+            data-aos="fade-up"
+          >
+            <div class="text-center mb-6">
+              <i class="fas fa-compact-disc text-5xl text-purple-500 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-2">DJ Básico</h3>
+              <div class="text-4xl font-bold gradient-text mb-4">$300 MXN</div>
+              <p class="text-gray-400">Por hora</p>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Mezcla profesional en vivo</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Biblioteca musical actualizada</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Micrófono para anuncios</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Playlist personalizada</span>
+              </li>
+            </ul>
+            <a
+              href="#contacto"
+              class="block text-center bg-purple-600 hover:bg-purple-700 py-3 rounded-full transition-all"
+            >
+              Reservar Ahora
+            </a>
+          </div>
+
+          <!-- Servicio Completo -->
+          <div
+            class="bg-slate-900 rounded-2xl p-8 border-2 border-purple-600 relative transform scale-105"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-600 px-4 py-1 rounded-full text-sm"
+            >
+              Más Popular
+            </div>
+            <div class="text-center mb-6">
+              <i class="fas fa-star text-5xl text-purple-500 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-2">Paquete Completo</h3>
+              <div class="text-4xl font-bold gradient-text mb-4">
+                Personalizado
+              </div>
+              <p class="text-gray-400">DJ + Audio + Iluminación</p>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Todo lo del DJ Básico</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Sistema de audio profesional</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Iluminación inteligente LED</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Efectos especiales</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Montaje y desmontaje incluido</span>
+              </li>
+            </ul>
+            <a
+              href="#contacto"
+              class="block text-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 py-3 rounded-full transition-all"
+            >
+              Solicitar Cotización
+            </a>
+          </div>
+
+          <!-- Servicios Adicionales -->
+          <div
+            class="bg-slate-900 rounded-2xl p-8 border border-slate-700 hover:border-purple-600 transition-all"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="text-center mb-6">
+              <i class="fas fa-plus-circle text-5xl text-purple-500 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-2">Extras</h3>
+              <div class="text-4xl font-bold gradient-text mb-4">
+                A la medida
+              </div>
+              <p class="text-gray-400">Personaliza tu evento</p>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Pantallas LED gigantes</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Máquinas de humo</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Confeti y CO2</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Karaoke profesional</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Hora loca con animación</span>
+              </li>
+            </ul>
+            <a
+              href="#contacto"
+              class="block text-center bg-purple-600 hover:bg-purple-700 py-3 rounded-full transition-all"
+            >
+              Consultar Opciones
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulador de Costos -->
+    <section id="simulador" class="py-20 px-4">
+      <div class="container mx-auto max-w-4xl">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Calcula tu <span class="gradient-text">Presupuesto</span>
+          </h2>
+          <p class="text-xl text-gray-400">
+            Obtén una cotización estimada al instante
+          </p>
+        </div>
+
+        <div
+          class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700"
+          data-aos="fade-up"
+        >
+          <div class="text-center py-12">
+            <i class="fas fa-calculator text-6xl text-purple-500 mb-6"></i>
+            <h3 class="text-2xl font-bold mb-4">Simulador en Desarrollo</h3>
+            <p class="text-gray-400 mb-8">
+              Próximamente podrás calcular el costo de tu evento de forma
+              interactiva
+            </p>
+            <a
+              href="#contacto"
+              class="inline-block bg-purple-600 hover:bg-purple-700 px-8 py-3 rounded-full transition-all"
+            >
+              Solicitar Cotización Personalizada
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Mí Section -->
+    <section id="sobre-mi" class="py-20 px-4 bg-slate-800/50">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Imagen -->
+          <div class="relative" data-aos="fade-right">
+            <img
+              src="https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=600&h=600&fit=crop"
+              alt="Jorge Armando Ceras Cárdenas"
+              class="rounded-2xl shadow-2xl"
+            />
+            <div
+              class="absolute -bottom-6 -right-6 bg-purple-600 rounded-2xl p-6 shadow-xl"
+            >
+              <div class="text-center">
+                <div class="text-4xl font-bold">10+</div>
+                <div class="text-sm">Años de Experiencia</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div data-aos="fade-left">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+              Soy <span class="gradient-text">Jorge Armando</span>
+            </h2>
+            <p class="text-lg text-gray-300 mb-6">
+              Mi pasión por la música comenzó desde muy joven, y con más de una
+              década de experiencia en la industria del entretenimiento, he
+              tenido el privilegio de formar parte de cientos de eventos
+              inolvidables.
+            </p>
+            <p class="text-lg text-gray-300 mb-6">
+              Como DJ Cen, mi misión es simple: crear experiencias únicas que
+              hagan de tu evento algo especial. Desde bodas íntimas hasta
+              grandes festivales corporativos, mi enfoque siempre es el mismo:
+              profesionalismo, calidad y, sobre todo, hacer que todos disfruten
+              al máximo.
+            </p>
+            <p class="text-lg text-gray-300 mb-8">
+              Mi filosofía es que cada evento es único, por eso trabajo de cerca
+              con mis clientes para entender su visión y superar sus
+              expectativas. No solo pongo música, creo atmósferas, momentos y
+              recuerdos.
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-6 mb-8">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-purple-500">500+</div>
+                <div class="text-gray-400">Eventos</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-purple-500">100%</div>
+                <div class="text-gray-400">Satisfacción</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-purple-500">24/7</div>
+                <div class="text-gray-400">Disponibilidad</div>
+              </div>
+            </div>
+
+            <a
+              href="#contacto"
+              class="inline-block bg-purple-600 hover:bg-purple-700 px-8 py-3 rounded-full transition-all"
+            >
+              <i class="fas fa-handshake mr-2"></i> Trabajemos Juntos
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reseñas Section -->
+    <section id="resenas" class="py-20 px-4">
+      <div class="container mx-auto">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Lo que dicen mis <span class="gradient-text">Clientes</span>
+          </h2>
+          <p class="text-xl text-gray-400">
+            Testimonios reales de eventos memorables
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Reseña 1 -->
+          <div
+            class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700"
+            data-aos="fade-up"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://i.pravatar.cc/100?img=1"
+                alt="Cliente"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-bold">María González</h4>
+                <div class="flex text-yellow-500">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-4">
+              "DJ Cen hizo de nuestra boda un evento inolvidable. La música fue
+              perfecta, todos bailaron hasta el amanecer. ¡Súper recomendado!"
+            </p>
+            <p class="text-sm text-gray-500">Boda - Noviembre 2024</p>
+          </div>
+
+          <!-- Reseña 2 -->
+          <div
+            class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://i.pravatar.cc/100?img=2"
+                alt="Cliente"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-bold">Carlos Rodríguez</h4>
+                <div class="flex text-yellow-500">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-4">
+              "Excelente servicio para nuestro evento corporativo.
+              Profesionalismo total, equipos de primera calidad y gran ambiente.
+              Volveremos a contratar."
+            </p>
+            <p class="text-sm text-gray-500">
+              Evento Corporativo - Octubre 2024
+            </p>
+          </div>
+
+          <!-- Reseña 3 -->
+          <div
+            class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://i.pravatar.cc/100?img=3"
+                alt="Cliente"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-bold">Ana Martínez</h4>
+                <div class="flex text-yellow-500">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-4">
+              "La iluminación y efectos especiales fueron espectaculares. Jorge
+              realmente sabe cómo crear el ambiente perfecto. ¡Gracias por
+              todo!"
+            </p>
+            <p class="text-sm text-gray-500">Quinceañera - Septiembre 2024</p>
+          </div>
+
+          <!-- Reseña 4 -->
+          <div
+            class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://i.pravatar.cc/100?img=4"
+                alt="Cliente"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-bold">Roberto Sánchez</h4>
+                <div class="flex text-yellow-500">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-4">
+              "Puntualidad, calidad y excelente trato. DJ Cen superó nuestras
+              expectativas. El mejor DJ que hemos contratado sin duda."
+            </p>
+            <p class="text-sm text-gray-500">Graduación - Agosto 2024</p>
+          </div>
+
+          <!-- Reseña 5 -->
+          <div
+            class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://i.pravatar.cc/100?img=5"
+                alt="Cliente"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-bold">Laura Pérez</h4>
+                <div class="flex text-yellow-500">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-4">
+              "Increíble experiencia. La música estuvo perfecta para todas las
+              edades. Definitivamente lo recomendaré a todos mis amigos."
+            </p>
+            <p class="text-sm text-gray-500">
+              Fiesta de Aniversario - Julio 2024
+            </p>
+          </div>
+
+          <!-- Reseña 6 -->
+          <div
+            class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://i.pravatar.cc/100?img=6"
+                alt="Cliente"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-bold">Diego Fernández</h4>
+                <div class="flex text-yellow-500">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-4">
+              "El mejor precio-calidad del mercado. Equipo profesional, música
+              actualizada y excelente servicio. 100% satisfecho."
+            </p>
+            <p class="text-sm text-gray-500">Fiesta Privada - Junio 2024</p>
+          </div>
+        </div>
+
+        <!-- CTA para dejar reseña -->
+        <div class="text-center mt-12" data-aos="fade-up">
+          <p class="text-gray-400 mb-4">¿Has trabajado con DJ Cen?</p>
+          <button
+            class="bg-purple-600 hover:bg-purple-700 px-8 py-3 rounded-full transition-all"
+          >
+            <i class="fas fa-star mr-2"></i> Dejar una Reseña
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-20 px-4 bg-slate-800/50">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            ¡Hagamos tu evento <span class="gradient-text">Inolvidable</span>!
+          </h2>
+          <p class="text-xl text-gray-400">
+            Contáctame y comencemos a planear tu celebración
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Formulario -->
+          <div
+            class="bg-slate-900 rounded-2xl p-8 border border-slate-700"
+            data-aos="fade-right"
+          >
+            <h3 class="text-2xl font-bold mb-6">Envíame un Mensaje</h3>
+            <form class="space-y-6">
+              <div>
+                <label class="block text-sm font-medium mb-2"
+                  >Nombre Completo</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 bg-slate-800 rounded-lg border border-slate-700 focus:border-purple-600 focus:outline-none transition-all"
+                  placeholder="Tu nombre"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Email</label>
+                <input
+                  type="email"
+                  class="w-full px-4 py-3 bg-slate-800 rounded-lg border border-slate-700 focus:border-purple-600 focus:outline-none transition-all"
+                  placeholder="tu@email.com"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Teléfono</label>
+                <input
+                  type="tel"
+                  class="w-full px-4 py-3 bg-slate-800 rounded-lg border border-slate-700 focus:border-purple-600 focus:outline-none transition-all"
+                  placeholder="(123) 456-7890"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2"
+                  >Tipo de Evento</label
+                >
+                <select
+                  class="w-full px-4 py-3 bg-slate-800 rounded-lg border border-slate-700 focus:border-purple-600 focus:outline-none transition-all"
+                >
+                  <option>Selecciona un tipo</option>
+                  <option>Boda</option>
+                  <option>Quinceañera</option>
+                  <option>Evento Corporativo</option>
+                  <option>Fiesta Privada</option>
+                  <option>Graduación</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2"
+                  >Fecha del Evento</label
+                >
+                <input
+                  type="date"
+                  class="w-full px-4 py-3 bg-slate-800 rounded-lg border border-slate-700 focus:border-purple-600 focus:outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Mensaje</label>
+                <textarea
+                  rows="4"
+                  class="w-full px-4 py-3 bg-slate-800 rounded-lg border border-slate-700 focus:border-purple-600 focus:outline-none transition-all"
+                  placeholder="Cuéntame sobre tu evento..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-purple-600 hover:bg-purple-700 py-4 rounded-full font-semibold transition-all"
+              >
+                Enviar Mensaje
+              </button>
+            </form>
+          </div>
+
+          <!-- Información de Contacto -->
+          <div class="space-y-8" data-aos="fade-left">
+            <!-- Contacto Directo -->
+            <div class="bg-slate-900 rounded-2xl p-8 border border-slate-700">
+              <h3 class="text-2xl font-bold mb-6">Contacto Directo</h3>
+              <div class="space-y-4">
+                <a
+                  href="tel:+521234567890"
+                  class="flex items-center space-x-4 hover:text-purple-500 transition-colors"
+                >
+                  <div class="bg-purple-600/20 p-3 rounded-lg">
+                    <i class="fas fa-phone text-purple-500"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-400">Teléfono</p>
+                    <p class="font-semibold">+52 123 456 7890</p>
+                  </div>
+                </a>
+                <a
+                  href="mailto:contacto@djcen.mx"
+                  class="flex items-center space-x-4 hover:text-purple-500 transition-colors"
+                >
+                  <div class="bg-purple-600/20 p-3 rounded-lg">
+                    <i class="fas fa-envelope text-purple-500"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-400">Email</p>
+                    <p class="font-semibold">contacto@djcen.mx</p>
+                  </div>
+                </a>
+                <div class="flex items-center space-x-4">
+                  <div class="bg-purple-600/20 p-3 rounded-lg">
+                    <i class="fas fa-map-marker-alt text-purple-500"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-400">Ubicación</p>
+                    <p class="font-semibold">Sahuayo de Morelos, Michoacán</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Redes Sociales -->
+            <div class="bg-slate-900 rounded-2xl p-8 border border-slate-700">
+              <h3 class="text-2xl font-bold mb-6">Sígueme en Redes</h3>
+              <div class="grid grid-cols-3 gap-4">
+                <a
+                  href="https://wa.me/521234567890"
+                  target="_blank"
+                  class="bg-green-600/20 hover:bg-green-600/30 p-6 rounded-lg text-center transition-all hover-scale"
+                >
+                  <i class="fab fa-whatsapp text-3xl text-green-500 mb-2"></i>
+                  <p class="text-sm">WhatsApp</p>
+                </a>
+                <a
+                  href="https://facebook.com/djcen"
+                  target="_blank"
+                  class="bg-blue-600/20 hover:bg-blue-600/30 p-6 rounded-lg text-center transition-all hover-scale"
+                >
+                  <i class="fab fa-facebook text-3xl text-blue-500 mb-2"></i>
+                  <p class="text-sm">Facebook</p>
+                </a>
+                <a
+                  href="https://instagram.com/djcen"
+                  target="_blank"
+                  class="bg-pink-600/20 hover:bg-pink-600/30 p-6 rounded-lg text-center transition-all hover-scale"
+                >
+                  <i class="fab fa-instagram text-3xl text-pink-500 mb-2"></i>
+                  <p class="text-sm">Instagram</p>
+                </a>
+              </div>
+            </div>
+
+            <!-- Horario -->
+            <div
+              class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8"
+            >
+              <h3 class="text-2xl font-bold mb-4">Disponibilidad</h3>
+              <p class="mb-2">
+                <i class="fas fa-check-circle mr-2"></i> Eventos de Lunes a
+                Domingo
+              </p>
+              <p class="mb-2">
+                <i class="fas fa-check-circle mr-2"></i> Respuesta en menos de
+                24 horas
+              </p>
+              <p>
+                <i class="fas fa-check-circle mr-2"></i> Cobertura en todo
+                Michoacán
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-12 px-4">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <!-- Logo y Descripción -->
+          <div class="md:col-span-2">
+            <div class="flex items-center space-x-2 mb-4">
+              <div class="w-10 h-10">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  version="1.0"
+                  viewBox="0 0 1024 1024"
+                  fill="currentColor"
+                  class="text-purple-500"
+                >
+                  <path
+                    d="M227.1 165.6c-2.1 2.7-2.1 2.7-2.1 343.8 0 361.7-.2 345.4 4.4 344.5 1-.2 13.5-12.1 27.9-26.5C450.2 635.3 497.9 591 560.5 545.9c40.4-29.2 79.4-50.6 131.4-72.1 8-3.3 17.5-7.3 21-8.7 8.8-3.7 9.6-5.4 4.9-9.4-2-1.8-14.6-9.8-28-17.8-13.3-8-49.5-29.8-80.3-48.4-30.8-18.6-81.2-49-112-67.5-30.8-18.6-67-40.4-80.5-48.5-13.5-8.2-30.3-18.3-37.5-22.5-7.1-4.2-24.7-14.8-39-23.5-66.6-40.7-106.9-64.5-109-64.5-1.4 0-3.3 1.1-4.4 2.6zm130.6 194c14.2 8.6 32.3 19.6 40.3 24.4 15.3 9.1 66.5 40.5 81 49.5 4.7 2.9 17.8 11 29.3 17.9 11.4 7 20.7 13.3 20.7 13.9 0 .7-1.7 2.3-3.7 3.7-10.6 7.1-41.4 29.5-52.7 38.4-37.6 29.5-78.3 65.5-125.9 111.4-8.7 8.4-16.3 15-16.8 14.7-.5-.4-.9-57.5-.9-145.1 0-124.4.2-144.4 1.4-144.4.8 0 13.1 7 27.3 15.6z"
+                  />
+                  <path
+                    d="M727.5 507.7c-46.6 6.1-89.3 23.6-141 57.9-48.7 32.2-91.4 70.1-179.5 159-19 19.2-54.5 55-78.8 79.5-24.3 24.5-44.2 45.3-44.2 46.1 0 3.5 2.5 4 21.7 4.1 21 0 25.6-.9 39.8-8 15.7-8 18.3-10.2 56.4-49.6C499.1 696 543.3 657.1 596.1 625.4c58.2-34.8 115.7-50.8 165.5-45.9 8.8.8 18.8 2.2 22.4 3 18.8 4.1 17.6 4 20.4 2.2 4.5-3 4.3-5.5-1.3-17.9-2.9-6.2-7-14.4-9.3-18.3-7.7-13-27.1-38.5-30.8-40.5-1.8-.9-28.9-1.2-35.5-.3z"
+                  />
+                  <path
+                    d="M722 616.1c-17.4 2-46.4 9.2-62.4 15.5-48.7 19.4-94.1 50.7-147.3 101.6-23.7 22.7-64.9 63.2-90.6 89.2-19.7 20-23.7 24.5-23.5 26.6.3 2.5.3 2.5 19.8 2.8 20.6.3 23.6-.1 34.5-4.6 10.9-4.4 24.7-15.8 61.2-50.3 46.2-43.6 62.4-57.3 89.8-75.6 19.6-13.1 39.1-23.6 53.5-28.8 11.7-4.1 29.7-8.2 42.2-9.5 9.6-1 13.7-.9 25.9.5 16.2 1.8 21.3 3 36.1 8.1 10.5 3.7 30.6 13.3 41.1 19.6 10 6.1 12.4 3.8 16.4-15.7 2.6-13 2.8-15.7 2.8-37.2 0-21.9-.1-23.4-2-25.2-2.7-2.6-21.6-9.6-34.4-12.7-19.8-4.8-44-6.4-63.1-4.3z"
+                  />
+                </svg>
+              </div>
+              <span class="text-xl font-bold">DJ Cen</span>
+            </div>
+            <p class="text-gray-400">
+              Servicios profesionales de DJ, audio e iluminación para eventos.
+              Haciendo que cada celebración sea única e inolvidable.
+            </p>
+          </div>
+
+          <!-- Enlaces Rápidos -->
+          <div>
+            <h4 className="font-bold mb-4">Enlaces Rápidos</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#inicio"
+                  class="text-gray-400 hover:text-purple-500 transition-colors"
+                  >Inicio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#servicios"
+                  class="text-gray-400 hover:text-purple-500 transition-colors"
+                  >Servicios</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#portfolio"
+                  class="text-gray-400 hover:text-purple-500 transition-colors"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contacto"
+                  class="text-gray-400 hover:text-purple-500 transition-colors"
+                  >Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Redes Sociales -->
+          <div>
+            <h4 class="font-bold mb-4">Síguenos</h4>
+            <div class="flex space-x-4">
+              <a
+                href="https://facebook.com/djcen"
+                target="_blank"
+                class="bg-slate-800 p-3 rounded-lg hover:bg-purple-600 transition-all"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://instagram.com/djcen"
+                target="_blank"
+                class="bg-slate-800 p-3 rounded-lg hover:bg-purple-600 transition-all"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://wa.me/521234567890"
+                target="_blank"
+                class="bg-slate-800 p-3 rounded-lg hover:bg-purple-600 transition-all"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <a
+                href="https://youtube.com/djcen"
+                target="_blank"
+                class="bg-slate-800 p-3 rounded-lg hover:bg-purple-600 transition-all"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Línea divisora -->
+        <div class="border-t border-slate-800 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm mb-4 md:mb-0">
+              © 2025 DJ Cen - Jorge Armando Ceras Cárdenas. Todos los derechos
+              reservados.
+            </p>
+            <div class="flex space-x-6 text-sm">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-purple-500 transition-colors"
+                >Aviso de Privacidad</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 hover:text-purple-500 transition-colors"
+                >Términos y Condiciones</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Flotante -->
+    <a
+      href="https://wa.me/521234567890?text=Hola%20DJ%20Cen,%20me%20gustaría%20cotizar%20para%20un%20evento"
+      target="_blank"
+      class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 p-4 rounded-full shadow-lg transition-all hover-scale pulse-glow z-50"
+    >
+      <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+      // Inicializar AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+      });
+
+      // Smooth scroll para enlaces de navegación
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Formulario de contacto
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Aquí puedes agregar la lógica para enviar el formulario
+        // Por ahora, solo mostraremos una alerta
+        alert("¡Gracias por tu mensaje! Te contactaré pronto.");
+        this.reset();
+      });
+
+      // Animación de números en estadísticas
+      const observerOptions = {
+        threshold: 0.5,
+        rootMargin: "0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const counters = entry.target.querySelectorAll("[data-counter]");
+            counters.forEach((counter) => {
+              const target = parseInt(counter.getAttribute("data-counter"));
+              let current = 0;
+              const increment = target / 100;
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  counter.textContent =
+                    target + (counter.getAttribute("data-suffix") || "");
+                  clearInterval(timer);
+                } else {
+                  counter.textContent =
+                    Math.floor(current) +
+                    (counter.getAttribute("data-suffix") || "");
+                }
+              }, 20);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observar sección de estadísticas si existe
+      const statsSection = document.querySelector("#sobre-mi");
+      if (statsSection) {
+        observer.observe(statsSection);
+      }
+    </script>
+
+    <!-- Schema.org para SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "DJ Cen",
+        "description": "Servicios profesionales de DJ, audio e iluminación para eventos en Michoacán",
+        "url": "https://djcen.mx",
+        "telephone": "+521234567890",
+        "email": "contacto@djcen.mx",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Sahuayo de Morelos",
+          "addressRegion": "Michoacán",
+          "addressCountry": "MX"
+        },
+        "priceRange": "$",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "00:00",
+          "closes": "23:59"
+        },
+        "sameAs": [
+          "https://facebook.com/djcen",
+          "https://instagram.com/djcen",
+          "https://youtube.com/djcen"
+        ]
+      }
+    </script>
+  </body>
+</html>

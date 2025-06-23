@@ -1,0 +1,148 @@
+---
+import { CheckCircle, Disc, PlusCircle, Star } from "lucide-react";
+---
+
+<section
+  id="services"
+  class="px-4 py-8 min-h-screen flex items-center justify-center overflow-hidden"
+>
+  <div class="w-full max-w-screen-lg mx-auto">
+    <header class="text-center mb-12 space-y-2">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Mis Servicios</h2>
+      <p class="text-xl text-gray-400">Soluciones completas para tu evento</p>
+    </header>
+
+    <ul class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <li
+        class="bg-gray-200 border border-gray-400 rounded-2xl p-8 flex flex-col items-center justify-between"
+      >
+        <header class="w-full text-center mb-6">
+          <Disc className="w-12 h-12 mx-auto mb-4" />
+          <h3 class="text-2xl font-bold mb-2">DJ Básico</h3>
+          <p class="text-4xl font-bold mb-4">
+            $300 MXN<span class="font-normal text-2xl">/hr</span>
+          </p>
+          <p class="text-gray-600">
+            Ideal para eventos que no requieran de equipo
+          </p>
+        </header>
+        <ul class="w-full space-y-3 mb-8">
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            <span>Mezcla profesional en vivo</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            <span>Biblioteca musical actualizada</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            <span>Micrófono para anuncios</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            <span>Playlist personalizada</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            <span>Música versátil</span>
+          </li>
+        </ul>
+        <a
+          href="#contact"
+          class="w-full block text-center bg-black/5 text-gray-600 border border-gray-600 hover:bg-black hover:border-black hover:text-white py-3 rounded-full transition-all"
+        >
+          Reservar Ahora
+        </a>
+      </li>
+      <li
+        class="bg-gray-200 border border-gray-400 rounded-2xl p-8 relative transform lg:scale-105 flex flex-col items-center justify-between"
+      >
+        <div
+          class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-teal-500 px-4 py-1 rounded-full text-sm text-white"
+        >
+          Más Popular
+        </div>
+        <header class="w-full text-center mb-6">
+          <Star className="w-12 h-12 mx-auto mb-4" />
+          <h3 class="text-2xl font-bold mb-2">Paquete Completo</h3>
+          <div class="text-4xl font-bold mb-4">Personalizado</div>
+          <p class="text-gray-600">DJ + Audio + Iluminación</p>
+        </header>
+        <ul class="w-full space-y-3 mb-8">
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 text-teal-500 mr-2" />
+            <span>Todo lo del DJ Básico</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 text-teal-500 mr-2" />
+            <span>Sistema de audio profesional</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 text-teal-500 mr-2" />
+            <span>Iluminación LED</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 text-teal-500 mr-2" />
+            <span>Cabina LED</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 text-teal-500 mr-2" />
+            <span>Utilería (Globos, confeti, etc.)</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 text-teal-500 mr-2" />
+            <span>Máquina de humo</span>
+          </li>
+        </ul>
+        <a
+          href="#cost"
+          class="w-full block text-center bg-teal-500 text-white hover:bg-teal-700 py-3 rounded-full transition-all"
+        >
+          Cotizar ahora
+        </a>
+      </li>
+      <li
+        class="bg-gray-200 border border-gray-400 rounded-2xl p-8 flex flex-col items-center justify-between"
+      >
+        <header class="w-full text-center mb-6">
+          <PlusCircle className="w-12 h-12 mx-auto mb-4" />
+          <h3 class="text-4xl font-bold mb-2">Extras</h3>
+          <p class="text-gray-600">Personaliza tu evento</p>
+        </header>
+        <ul class="w-full space-y-3 mb-8">
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            <span>Hasta 3 pantallas 55"</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            <span>Cohetes de chispa fría</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            <span>Carrito de shots</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            <span>Botarga de la monja</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            <span>Video collage (requiere pantalla)</span>
+          </li>
+          <li class="flex items-center">
+            <CheckCircle className="w-5 h-5 mr-2" />
+            <span>Microfoneo de grupos musicales</span>
+          </li>
+        </ul>
+        <a
+          href="#contact"
+          class="w-full block text-center bg-black/5 text-gray-600 border border-gray-600 hover:bg-black hover:border-black hover:text-white py-3 rounded-full transition-all"
+        >
+          Consultar Opciones
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>

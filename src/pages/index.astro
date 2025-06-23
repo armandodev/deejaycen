@@ -1,16 +1,59 @@
 ---
-
+import Cost from "@/components/Cost.astro";
+import Hero from "@/components/Hero.astro";
+import Loader from "@/components/Loader.astro";
+import Navigation from "@/components/Navigation.tsx";
+import Portfolio from "@/components/Portfolio.astro";
+import Services from "@/components/Services.astro";
+import About from "@/components/About.astro";
+import Reviews from "@/components/Reviews.astro";
+import Contact from "@/components/Contact.astro";
+import Footer from "@/components/Footer.astro";
+import "@/styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      DJ Cen - Servicios Premium de Audio, Iluminación y DJ para Eventos
+    </title>
+    <meta
+      name="description"
+      content="DJ Cen - Jorge Armando Ceras Cárdenas. Servicios profesionales de DJ, audio e iluminación para eventos. Desde $300 MXN. Experiencia y calidad garantizada."
+    />
+    <meta
+      name="keywords"
+      content="DJ, audio, iluminación, eventos, bodas, fiestas, música, sonido profesional"
+    />
+    <meta
+      property="og:title"
+      content="DJ Cen - Servicios Premium de DJ para Eventos"
+    />
+    <meta
+      property="og:description"
+      content="Transforma tu evento con servicios profesionales de DJ, audio e iluminación. Experiencia garantizada."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.deejaycen.com" />
+    <link rel="canonical" href="https://www.deejaycen.com" />
+    <title>Astro</title>
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <Loader />
+    <Navigation client:load />
+    <main>
+      <Hero />
+      <Portfolio />
+      <Services />
+      <Cost />
+      <About />
+      <Reviews />
+      <Contact />
+    </main>
+    <Footer />
+  </body>
 </html>

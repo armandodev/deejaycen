@@ -1,0 +1,57 @@
+---
+import Icon from "./Icon.astro";
+import { Calendar, GalleryVertical, ChevronDown } from "@lucide/astro";
+---
+
+<section
+  id="hero"
+  class="relative w-full px-4 min-h-screen flex items-center justify-center overflow-hidden text-white"
+>
+  <div class="absolute w-full h-full inset-0 z-0">
+    <div
+      class="absolute inset-0 w-full h-full bg-gradient-to-br from-black/50 to-gray-700/70 z-10"
+    >
+    </div>
+    <img
+      class="w-full h-full object-cover object-center grayscale-100"
+      src="/hero.webp"
+      alt="DJ Performance"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="relative z-10 text-center px-4 max-w-screen-lg mx-auto">
+    <h1 class="text-5xl md:text-7xl font-bold mb-6">
+      <Icon class="w-32 aspect-square mx-auto" />DJ Cen
+    </h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-center">
+      <a
+        href="#contact"
+        class="bg-white text-black hover:bg-black/50 backdrop-blur-sm hover:text-white px-4 py-2 rounded-full text-lg font-semibold transition-all flex justify-center items-center gap-2"
+      >
+        <Calendar /> Reservar Fecha
+      </a>
+      <a
+        href="#portfolio"
+        class="hover:bg-black/5 bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-full text-lg font-semibold transition-all flex justify-center items-center gap-2"
+      >
+        <GalleryVertical /> Ver Galería
+      </a>
+    </div>
+
+    <div
+      class="absolute bottom-8 left-1/2 transform -translate-x-1/2 float-animation"
+    >
+      <i class="fas fa-chevron-down text-2xl text-purple-500"></i>
+    </div>
+  </div>
+
+  <a
+    href="#portfolio"
+    class="hover:text-white text-gray-200 transition-colors absolute bottom-4 left-1/2 transform -translate-x-1/2"
+  >
+    <ChevronDown
+      class="w-6 h-6 animate-bouncing animate-iteration-count-infinite"
+    />
+  </a>
+</section>

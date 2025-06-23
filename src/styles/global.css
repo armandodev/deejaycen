@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@plugin "@midudev/tailwind-animations";
+
+html {
+  background-color: var(--color-gray-100);
+  color: var(--color-black);
+  scroll-behavior: smooth;
+}
