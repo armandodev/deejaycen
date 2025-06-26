@@ -1,15 +1,20 @@
 ---
-import { Mail, MapPin, Phone, PhoneCall } from "lucide-react";
+import { CheckCircle, Mail, MapPin, Phone } from "lucide-react";
+import SoundCloud from "@/icons/SoundCloud.astro";
+import Instagram from "@/icons/Instagram.astro";
+import Facebook from "@/icons/Facebook.astro";
+import Youtube from "@/icons/Youtube.astro";
 import Whatsapp from "@/icons/Whatsapp.astro";
 ---
 
 <section
   id="contact"
   class="px-4 py-8 min-h-screen flex items-center justify-center overflow-hidden"
+  aria-labelledby="contact-heading"
 >
   <div class="w-full max-w-screen-lg mx-auto">
     <header class="text-center mb-12 space-y-2">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+      <h2 id="contact-heading" class="text-4xl md:text-5xl font-bold mb-4">
         ¡Hagamos tu evento inolvidable!
       </h2>
       <p class="text-xl text-gray-400">
@@ -18,42 +23,59 @@ import Whatsapp from "@/icons/Whatsapp.astro";
     </header>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <div class="bg-gray-200 rounded-2xl p-8 border border-gray-400">
-        <h3 class="text-2xl font-bold mb-6">Envíame un Mensaje</h3>
-        <form class="space-y-6">
-          <label class="grid gap-2">
-            <span>Nombre Completo <span class="text-red-500">*</span></span>
-            <input
-              type="text"
-              class="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-400 focus:border-teal-500 focus:outline-none transition-all"
-              placeholder="John Doe"
-              required
-            />
-          </label>
-          <label class="grid gap-2">
-            <span>Email <span class="text-red-500">*</span></span>
-            <input
-              type="email"
-              class="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-400 focus:border-teal-500 focus:outline-none transition-all"
-              placeholder="john.doe@example.com"
-              required
-            />
-          </label>
-          <label class="grid gap-2">
-            <span>Teléfono</span>
-            <input
-              type="tel"
-              class="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-400 focus:border-teal-500 focus:outline-none transition-all"
-              placeholder="+52 xxx xxx xxxx"
-              required
-            />
-            <label class="block text-sm font-medium mb-2"
-              >Tipo de Evento <span class="text-red-500">*</span>
+      <section
+        aria-labelledby="form-heading"
+        class="bg-gray-200 rounded-2xl p-8 border border-gray-400"
+      >
+        <h3 id="form-heading" class="text-2xl font-bold mb-6">
+          Envíame un Mensaje
+        </h3>
+        <form class="space-y-6" aria-describedby="form-description">
+          <fieldset class="space-y-6">
+            <legend id="form-description" class="sr-only">
+              Formulario de contacto para eventos
+            </legend>
+            <label class="grid gap-2">
+              <span>Nombre Completo <span class="text-red-500">*</span></span>
+              <input
+                type="text"
+                name="nombre"
+                class="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-400 focus:border-teal-500 focus:outline-none transition-all"
+                placeholder="John Doe"
+                required
+                autocomplete="name"
+              />
+            </label>
+            <label class="grid gap-2">
+              <span>Email <span class="text-red-500">*</span></span>
+              <input
+                type="email"
+                name="email"
+                class="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-400 focus:border-teal-500 focus:outline-none transition-all"
+                placeholder="john.doe@example.com"
+                required
+                autocomplete="email"
+              />
+            </label>
+            <label class="grid gap-2">
+              <span>Teléfono</span>
+              <input
+                type="tel"
+                name="telefono"
+                class="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-400 focus:border-teal-500 focus:outline-none transition-all"
+                placeholder="+52 xxx xxx xxxx"
+                required
+                autocomplete="tel"
+              />
+            </label>
+            <label class="grid gap-2">
+              <span>Tipo de Evento <span class="text-red-500">*</span></span>
               <select
+                name="tipo-evento"
                 class="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-400 focus:border-teal-500 focus:outline-none transition-all"
                 required
               >
-                <option>Selecciona un tipo</option>
+                <option value="">Selecciona un tipo</option>
                 <option>Boda</option>
                 <option>XV años</option>
                 <option>Evento Corporativo</option>
@@ -62,23 +84,25 @@ import Whatsapp from "@/icons/Whatsapp.astro";
                 <option>Otro</option>
               </select>
             </label>
-          </label>
-          <label class="grid gap-2">
-            <span>Fecha del Evento <span class="text-red-500">*</span></span>
-            <input
-              type="date"
-              class="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-400 focus:border-teal-500 focus:outline-none transition-all"
-              required
-            />
-          </label>
-          <label class="grid gap-2">
-            <span>Mensaje <span class="text-red-500">*</span></span>
-            <textarea
-              rows="4"
-              class="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-400 focus:border-teal-500 focus:outline-none transition-all"
-              placeholder="Cuéntame sobre tu evento..."
-              required></textarea>
-          </label>
+            <label class="grid gap-2">
+              <span>Fecha del Evento <span class="text-red-500">*</span></span>
+              <input
+                type="date"
+                name="fecha"
+                class="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-400 focus:border-teal-500 focus:outline-none transition-all"
+                required
+              />
+            </label>
+            <label class="grid gap-2">
+              <span>Mensaje <span class="text-red-500">*</span></span>
+              <textarea
+                name="mensaje"
+                rows="4"
+                class="w-full px-4 py-3 bg-gray-100 rounded-lg border border-gray-400 focus:border-teal-500 focus:outline-none transition-all"
+                placeholder="Cuéntame sobre tu evento..."
+                required></textarea>
+            </label>
+          </fieldset>
           <button
             type="submit"
             class="w-full bg-teal-500 hover:bg-teal-700 py-4 rounded-full font-semibold transition-all text-white"
@@ -86,94 +110,171 @@ import Whatsapp from "@/icons/Whatsapp.astro";
             Enviar Mensaje
           </button>
         </form>
-      </div>
+      </section>
 
-      <div class="space-y-8">
-        <div class="bg-gray-200 rounded-2xl p-8 border border-gray-400">
-          <h3 class="text-2xl font-bold mb-6">Contacto Directo</h3>
-          <div class="space-y-4">
-            <a
-              href="tel:+521234567890"
-              class="flex items-center space-x-4 hover:text-teal-500 transition-colors"
-            >
-              <div class="bg-teal-500/20 p-3 rounded-lg">
-                <Phone className="text-teal-500 fill-current" />
-              </div>
-              <div>
-                <p class="text-sm text-gray-400">Teléfono</p>
-                <p class="font-semibold">+52 123 456 7890</p>
-              </div>
-            </a>
-            <a
-              href="mailto:contacto@djcen.mx"
-              class="flex items-center space-x-4 hover:text-teal-500 transition-colors"
-            >
-              <div class="bg-teal-500/20 p-3 rounded-lg">
-                <Mail className="text-teal-500" />
-              </div>
-              <div>
-                <p class="text-sm text-gray-400">Email</p>
-                <p class="font-semibold">contacto@deejaycen.com</p>
-              </div>
-            </a>
-            <div class="flex items-center space-x-4">
-              <div class="bg-teal-500/20 p-3 rounded-lg">
-                <MapPin className="text-teal-500" />
-              </div>
-              <div>
-                <p class="text-sm text-gray-400">Ubicación</p>
-                <p class="font-semibold">Sahuayo de Morelos, Michoacán</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-gray-200 rounded-2xl p-8 border border-gray-400">
-          <h3 class="text-2xl font-bold mb-6">Sígueme en Redes</h3>
-          <div class="grid grid-cols-3 gap-4">
-            <a
-              href="https://wa.me/523328298224"
-              target="_blank"
-              class="bg-green-600/20 hover:bg-green-600/30 p-6 rounded-lg text-center transition-all hover-scale"
-            >
-              <Whatsapp class="w-8" />
-              <p class="text-sm">WhatsApp</p>
-            </a>
-            <a
-              href="https://facebook.com/djcen"
-              target="_blank"
-              class="bg-blue-600/20 hover:bg-blue-600/30 p-6 rounded-lg text-center transition-all hover-scale"
-            >
-              <i class="fab fa-facebook text-3xl text-blue-500 mb-2"></i>
-              <p class="text-sm">Facebook</p>
-            </a>
-            <a
-              href="https://instagram.com/djcen"
-              target="_blank"
-              class="bg-pink-600/20 hover:bg-pink-600/30 p-6 rounded-lg text-center transition-all hover-scale"
-            >
-              <i class="fab fa-instagram text-3xl text-pink-500 mb-2"></i>
-              <p class="text-sm">Instagram</p>
-            </a>
-          </div>
-        </div>
-
-        <!-- Horario -->
-        <div
-          class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8"
+      <aside
+        class="space-y-8"
+        aria-label="Información de contacto y redes sociales"
+      >
+        <section
+          aria-labelledby="direct-contact-heading"
+          class="bg-gray-200 rounded-2xl p-8 border border-gray-400"
         >
-          <h3 class="text-2xl font-bold mb-4">Disponibilidad</h3>
-          <p class="mb-2">
-            <i class="fas fa-check-circle mr-2"></i> Eventos de Lunes a Domingo
-          </p>
-          <p class="mb-2">
-            <i class="fas fa-check-circle mr-2"></i> Respuesta en menos de 24 horas
-          </p>
-          <p>
-            <i class="fas fa-check-circle mr-2"></i> Cobertura en todo Michoacán
-          </p>
-        </div>
-      </div>
+          <h3 id="direct-contact-heading" class="text-2xl font-bold mb-6">
+            Contacto Directo
+          </h3>
+          <ul class="space-y-4">
+            <li>
+              <a
+                href="tel:+521234567890"
+                class="flex items-center space-x-4 hover:text-teal-500 transition-colors"
+                aria-label="Llamar por teléfono"
+              >
+                <span class="bg-teal-500/20 p-3 rounded-lg" aria-hidden="true">
+                  <Phone className="text-teal-500 fill-current" />
+                </span>
+                <span>
+                  <span class="text-sm text-gray-400 block">Teléfono</span>
+                  <span class="font-semibold block">+52 123 456 7890</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:contacto@djcen.mx"
+                class="flex items-center space-x-4 hover:text-teal-500 transition-colors"
+                aria-label="Enviar correo electrónico"
+              >
+                <span class="bg-teal-500/20 p-3 rounded-lg" aria-hidden="true">
+                  <Mail className="text-teal-500" />
+                </span>
+                <span>
+                  <span class="text-sm text-gray-400 block">Email</span>
+                  <span class="font-semibold block">contacto@deejaycen.com</span
+                  >
+                </span>
+              </a>
+            </li>
+            <li>
+              <div class="flex items-center space-x-4">
+                <span class="bg-teal-500/20 p-3 rounded-lg" aria-hidden="true">
+                  <MapPin className="text-teal-500" />
+                </span>
+                <span>
+                  <span class="text-sm text-gray-400 block">Ubicación</span>
+                  <span class="font-semibold block"
+                    >Sahuayo de Morelos, Michoacán</span
+                  >
+                </span>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <nav
+          aria-labelledby="social-media-heading"
+          class="bg-gray-200 rounded-2xl p-8 border border-gray-400"
+        >
+          <h3 id="social-media-heading" class="text-2xl font-bold mb-6">
+            Sígueme en Redes
+          </h3>
+          <ul class="grid grid-cols-5 gap-4">
+            <li>
+              <a
+                href="https://wa.me/523328298224"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="grid gap-2"
+                aria-label="WhatsApp"
+              >
+                <Whatsapp
+                  class="w-8 text-green-300 hover:text-green-500 transition-colors mx-auto"
+                />
+                <span class="text-center">WhatsApp</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/deejay.cen/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="grid gap-2"
+                aria-label="Instagram"
+              >
+                <Instagram
+                  class="w-8 text-pink-300 hover:text-pink-500 transition-colors mx-auto"
+                />
+                <span class="text-center">Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/deejaycen"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="grid gap-2"
+                aria-label="Facebook"
+              >
+                <Facebook
+                  class="w-8 text-blue-300 hover:text-blue-500 transition-colors mx-auto"
+                />
+                <span class="text-center">Facebook</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/@deejaycen"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="grid gap-2"
+                aria-label="YouTube"
+              >
+                <Youtube
+                  class="w-8 text-red-300 hover:text-red-500 transition-colors mx-auto"
+                />
+                <span class="text-center">YouTube</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://soundcloud.com/deejaycen"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="grid gap-2"
+                aria-label="SoundCloud"
+              >
+                <SoundCloud
+                  class="w-8 text-orange-300 hover:text-orange-500 transition-colors mx-auto"
+                />
+                <span class="text-center">SoundCloud</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <section
+          aria-labelledby="availability-heading"
+          class="bg-gray-200 rounded-2xl p-8 border border-gray-400 space-y-4"
+        >
+          <h3 id="availability-heading" class="text-2xl font-bold mb-4">
+            Disponibilidad
+          </h3>
+          <ul class="space-y-2">
+            <li class="flex gap-2 items-center">
+              <CheckCircle aria-hidden="true" />
+              <span>Eventos de Lunes a Domingo</span>
+            </li>
+            <li class="flex gap-2 items-center">
+              <CheckCircle aria-hidden="true" />
+              <span>Respuesta en menos de 24 horas</span>
+            </li>
+            <li class="flex gap-2 items-center">
+              <CheckCircle aria-hidden="true" />
+              <span>Cobertura en todo Michoacán</span>
+            </li>
+          </ul>
+        </section>
+      </aside>
     </div>
   </div>
 </section>
