@@ -5,12 +5,15 @@ import Whatsapp from "@/icons/Whatsapp.astro";
 import Youtube from "@/icons/Youtube.astro";
 ---
 
-<footer class="bg-gray-200 border-t border-gray-300 py-12 px-4">
+<footer
+  class="bg-gray-200 border-t border-gray-300 py-12 px-4"
+  aria-labelledby="footer-heading"
+>
   <div class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-      <div class="md:col-span-2">
-        <div class="flex items-center space-x-2 mb-4">
-          <div class="w-10 h-10">
+      <section class="md:col-span-2" aria-labelledby="about-heading">
+        <header class="flex items-center space-x-2 mb-4">
+          <div class="w-10 h-10" aria-hidden="true">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               version="1.0"
@@ -29,16 +32,16 @@ import Youtube from "@/icons/Youtube.astro";
               ></path>
             </svg>
           </div>
-          <span class="text-xl font-bold">DJ Cen</span>
-        </div>
+          <span id="about-heading" class="text-xl font-bold">DJ Cen</span>
+        </header>
         <p class="text-gray-500">
           Servicios profesionales de DJ, audio e iluminación para eventos.
           Haciendo que cada celebración sea única e inolvidable.
         </p>
-      </div>
+      </section>
 
-      <div>
-        <h4 class="font-bold mb-4">Enlaces Rápidos</h4>
+      <nav aria-labelledby="quick-links-heading">
+        <h2 id="quick-links-heading" class="font-bold mb-4">Enlaces Rápidos</h2>
         <ul class="space-y-2">
           <li>
             <a
@@ -69,46 +72,81 @@ import Youtube from "@/icons/Youtube.astro";
             >
           </li>
         </ul>
-      </div>
+      </nav>
 
-      <!-- Redes Sociales -->
-      <div>
-        <h4 class="font-bold mb-4">Síguenos</h4>
-        <div class="flex space-x-4">
-          <a href="https://facebook.com/djcen" target="_blank">
-            <Facebook class="w-6 h-6 text-blue-500 hover:scale-105" />
-          </a>
-          <a href="https://instagram.com/djcen" target="_blank">
-            <Instagram class="w-6 h-6 text-pink-500 hover:scale-105" />
-          </a>
-          <a href="https://wa.me/521234567890" target="_blank">
-            <Whatsapp class="w-6 h-6 text-green-500 hover:scale-105" />
-          </a>
-          <a href="https://youtube.com/djcen" target="_blank">
-            <Youtube class="w-6 h-6 text-red-500 hover:scale-105" />
-          </a>
-        </div>
-      </div>
+      <section aria-labelledby="social-heading">
+        <h2 id="social-heading" class="font-bold mb-4">Síguenos</h2>
+        <ul class="flex space-x-4" role="list">
+          <li>
+            <a
+              href="https://facebook.com/djcen"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <Facebook class="w-6 h-6 text-blue-500 hover:scale-105" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://instagram.com/djcen"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <Instagram class="w-6 h-6 text-pink-500 hover:scale-105" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://wa.me/521234567890"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+            >
+              <Whatsapp class="w-6 h-6 text-green-500 hover:scale-105" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://youtube.com/djcen"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <Youtube class="w-6 h-6 text-red-500 hover:scale-105" />
+            </a>
+          </li>
+        </ul>
+      </section>
     </div>
 
     <div class="border-t border-gray-300 pt-8">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <p class="text-gray-500 text-sm mb-4 md:mb-0">
-          © 2025 DJ Cen - Jorge Armando Ceras Cárdenas. Todos los derechos
-          reservados.
+          <small
+            >© 2025 DJ Cen - Jorge Armando Ceras Cárdenas. Todos los derechos
+            reservados.</small
+          >
         </p>
-        <div class="flex space-x-6 text-sm">
-          <a
-            href="#"
-            class="text-gray-500 hover:text-teal-500 transition-colors"
-            >Aviso de Privacidad</a
-          >
-          <a
-            href="#"
-            class="text-gray-500 hover:text-teal-500 transition-colors"
-            >Términos y Condiciones</a
-          >
-        </div>
+        <nav aria-label="Legal">
+          <ul class="flex space-x-6 text-sm" role="list">
+            <li>
+              <a
+                href="#"
+                class="text-gray-500 hover:text-teal-500 transition-colors"
+                >Aviso de Privacidad</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-500 hover:text-teal-500 transition-colors"
+                >Términos y Condiciones</a
+              >
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
@@ -117,6 +155,8 @@ import Youtube from "@/icons/Youtube.astro";
 <a
   href="https://wa.me/521234567890?text=Hola%20DJ%20Cen,%20me%20gustaría%20cotizar%20para%20un%20evento"
   target="_blank"
+  rel="noopener noreferrer"
+  aria-label="WhatsApp Cotización"
   class="fixed bottom-6 right-6 bg-white p-4 rounded-full shadow-lg transition-all hover:scale-105 z-50"
 >
   <Whatsapp class="w-6 h-6 text-green-500" />
